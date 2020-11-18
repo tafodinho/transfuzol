@@ -16,7 +16,7 @@ const TransacSection = ({
     const transactions = subscriber.transfusions.map(trans => (
         <tr className="subscriber-item">
             <td className="text-center text-muted">{trans.id}</td>
-            <td onClick={() => onSelectSubscriber(trans.id, 'profile')}>
+            <td>
                 <div className="widget-content p-0">
                     <div className="widget-content-wrapper">
                         {/* <div className="widget-content-left mr-3">

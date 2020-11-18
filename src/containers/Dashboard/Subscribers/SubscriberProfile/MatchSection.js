@@ -16,7 +16,7 @@ const MatchSection = ({
     const matches = subscriber.match.map(donor => (
         <tr className="subscriber-item">
             <td className="text-center text-muted">{donor.sn}</td>
-            <td onClick={() => onSelectSubscriber(donor.id, 'profile')}>
+            <td>
                 <div className="widget-content p-0">
                     <div className="widget-content-wrapper">
                         {/* <div className="widget-content-left mr-3">
@@ -46,7 +46,7 @@ const MatchSection = ({
                 <table className="align-middle mb-0 table table-borderless table-striped table-hover">
                     <thead>
                     <tr>
-                        <th className="text-center">Id</th>
+                        <th className="text-center"></th>
                         <th>Name</th>
                         <th className="text-center">City</th>
                         <th className="text-center">Blood Group</th>

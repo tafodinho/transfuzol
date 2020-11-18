@@ -6,7 +6,6 @@ import {
 } from 'reactstrap';
 
 import DetailSection from './DetailSection';
-import MatchSection from './MatchSection';
 import TransacSection from './TransacSecion';
 
 const DonationDetail = ({
@@ -20,11 +19,6 @@ const DonationDetail = ({
             content = <DetailSection 
                         donation={donation}
                     />  
-            break
-        case 'match':
-            content = <MatchSection 
-                        donation={donation}
-                    />
             break
         case 'transac': 
             content = <TransacSection 

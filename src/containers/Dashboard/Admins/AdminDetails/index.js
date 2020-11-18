@@ -6,8 +6,6 @@ import {
 } from 'reactstrap';
 
 import DetailSection from './DetailSection';
-import MatchSection from './MatchSection';
-import TransacSection from './TransacSecion';
 
 const TransfusionDetail = ({
     transfusion
@@ -20,15 +18,6 @@ const TransfusionDetail = ({
             content = <DetailSection 
                         transfusion={transfusion}
                     />  
-            break
-        case 'match':
-            content = <MatchSection 
-                        transfusion={transfusion}
-                    />
-            break
-        case 'transac': 
-            content = <TransacSection 
-                    />
             break
     }
     return (

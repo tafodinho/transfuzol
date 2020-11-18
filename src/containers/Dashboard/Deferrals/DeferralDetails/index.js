@@ -6,8 +6,6 @@ import {
 } from 'reactstrap';
 
 import DetailSection from './DetailSection';
-import MatchSection from './MatchSection';
-import TransacSection from './TransacSecion';
 
 const DeferralDetail = ({
     deferral
@@ -20,16 +18,6 @@ const DeferralDetail = ({
             content = <DetailSection 
                         deferral={deferral}
                     />  
-            break
-        case 'match':
-            content = <MatchSection 
-                        deferral={deferral}
-                    />
-            break
-        case 'transac': 
-            content = <TransacSection
-                        
-                    />
             break
     }
     return (

@@ -16,7 +16,7 @@ const TransfusionSection = ({
     const transfusions = hospital.transfusions.map(transfusion => (
         <tr className="transfusion-item">
             <td className="text-center text-muted">{transfusion.id}</td>
-            <td onClick={() => onSelectTransfusion(transfusion.id, 'profile')}>
+            <td>
                 <div className="widget-content p-0">
                     <div className="widget-content-wrapper">
                         {/* <div className="widget-content-left mr-3">
