@@ -1,0 +1,84 @@
+form {
+    .form-group  {
+        label {}
+        
+        input {
+            &.error-message {
+                color: red
+            }
+            &.success-message {
+                color: limegreen
+            }
+            &.error-outline {
+                border: solid red 1px;
+            }
+            &.success-outline {
+                border: solid limegreen 1px;
+            }
+            &:focus {
+                outline: none;
+                border: none;
+            }
+        }
+        
+    }
+}
+
+
+.hospitals {
+    .dropdown-menu {
+        min-width: 3em;
+        left: 149px
+    }
+    .hospital-item {
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    
+}
+.hospital-profile {
+    p {
+        span {
+            font-weight: bold;
+        }
+    }
+    .tabs {
+        padding-left: 15px;
+        margin-bottom: -1px;
+        button {
+            border-radius: 0;
+            margin-right: 1px;
+            &.active {
+                background-color: limegreen !important;
+            }
+        }
+    }
+    .card {
+        padding: 10px;
+        .top-section {
+            display: flex;
+            .profile-pic {
+                img { 
+                    width: 10em;
+                }
+            }
+            .profile-info {
+                display: flex;
+                flex-direction: column;
+                .contact {
+                    display: flex;
+                    p {
+                        margin-right: 30px;
+                        span{
+                            font-weight: bold;
+                        }
+                    }
+                }
+            }
+        }
+        .bottom-section {
+
+        }
+    }
+}

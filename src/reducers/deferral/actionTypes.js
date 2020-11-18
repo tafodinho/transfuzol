@@ -1,0 +1,6 @@
+export const GET_DEFERRAL = 'GET_DEFERRAL';
+export const GET_DEFERRALS = 'GET_DEFERRALS';
+export const ADD_DEFERRAL = 'ADD_DEFERRAL';
+export const UPDATE_DEFERRAL = 'UPDATE_DEFERRAL';
+export const DELETE_DEFERRAL = 'DELETE_DEFERRAL';
+

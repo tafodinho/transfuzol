@@ -1,0 +1,6 @@
+export const GET_DONATION = 'GET_DONATION';
+export const GET_DONATIONS = 'GET_DONATIONS';
+export const ADD_DONATION = 'ADD_DONATION';
+export const UPDATE_DONATION = 'UPDATE_DONATION';
+export const DELETE_DONATION = 'DELETE_DONATION';
+

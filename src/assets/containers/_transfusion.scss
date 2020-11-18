@@ -1,0 +1,86 @@
+form {
+    .form-group  {
+        label {}
+        
+        input {
+            &.error-message {
+                color: red
+            }
+            &.success-message {
+                color: limegreen
+            }
+            &.error-outline {
+                border: solid red 1px;
+            }
+            &.success-outline {
+                border: solid limegreen 1px;
+            }
+            &:focus {
+                outline: none;
+                border: none;
+            }
+        }
+        
+    }
+}
+
+
+.transfusions {
+    .dropdown-menu {
+        min-width: 3em;
+        left: 149px
+    }
+    .transfusion-item {
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    
+}
+.transfusion-profile {
+    p {
+        span {
+            font-weight: bold;
+        }
+    }
+    .tabs {
+        padding-left: 15px;
+        margin-bottom: -1px;
+        button {
+            border-radius: 0;
+            margin-right: 1px;
+            &.active {
+                background-color: limegreen !important;
+            }
+        }
+    }
+    .card {
+        padding: 10px;
+        .top-section {
+            display: flex;
+            .profile-pic {
+                img { 
+                    width: 10em;
+                }
+            }
+            .profile-info {
+                margin-left: 25px;
+                display: flex;
+                flex-direction: column;
+                .contact {
+                    display: flex;
+                    p {
+                        margin-right: 30px;
+                        font-size: 20px;
+                        span{
+                            font-weight: bold;
+                        }
+                    }
+                }
+            }
+        }
+        .bottom-section {
+
+        }
+    }
+}
