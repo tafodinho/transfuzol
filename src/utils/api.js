@@ -20,7 +20,8 @@ const sendRequest = async (method, url, data) => {
       headers: {
         'Access-Control-Allow-Origin' : '*',
         'Access-Control-Allow-Methods' : 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
-        'Access-Control-Allow-Headers': 'Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With',
+        'Access-Control-Allow-Headers': 'Content-Type, Access-Control-Allow-Headers, X-Requested-With',
+        'Content-Security-Policy': 'upgrade-insecure-requests',
         'Authorization': `Bearer ${token}`
       },
       responseType: 'json',
