@@ -1,7 +1,7 @@
 const dev = {
     api: {
-      URL: 'https://ab211eefcd45.ngrok.io/',
-      // URL: 'http://localhost:5001/',
+      URL: 'http://transfuzol-env.eba-dvhmmhtu.us-west-2.elasticbeanstalk.com/',
+      // URL: 'http://127.0.0.1:5000/',
     },
   };
   
