@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 
 import renderField from './renderField';
 import validate from './validate';
+import TransfuzolLogo from '../../assets/images/transfuzol.png'
 
 let LoginForm = (props) => {
   const {
@@ -18,8 +19,8 @@ let LoginForm = (props) => {
     <form onSubmit={handleSubmit}>
       <div className="form-area form login-form">
         <div className="header-image">
-          {/* <img src={LifeMixLogo} /> */}
-          <h1 className="logo">TransfuZol</h1>
+          <img src={TransfuzolLogo} />
+          {/* <h1 className="logo">TransfuZol</h1> */}
         </div>
         <div className="">
           {errorMessage && <span className={errorMessage === 'loading...' ? 'clean' : 'error'}>{errorMessage}</span>}

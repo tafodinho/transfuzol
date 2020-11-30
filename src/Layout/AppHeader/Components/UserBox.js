@@ -20,7 +20,8 @@ import {
 
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
-import avatar1 from '../../../assets/utils/images/avatars/1.jpg';
+import avatar1 from '../../../assets/images/transfuzol_avatar.png';
+import { logout } from '../../../reducers/login/actions';
 
 class UserBox extends React.Component {
     constructor(props) {
@@ -39,6 +40,11 @@ class UserBox extends React.Component {
         type: 'success'
     });
 
+    onLogout = () => {
+        if(logout()) {
+            window.location.reload();
+        }
+    }
 
     render() {
 
@@ -55,7 +61,7 @@ class UserBox extends React.Component {
                                     </DropdownToggle>
                                     <DropdownMenu right className="rm-pointers dropdown-menu-lg">
                                         <Nav vertical>
-                                            <NavItem className="nav-item-header">
+                                            {/* <NavItem className="nav-item-header">
                                                 Activity
                                             </NavItem>
                                             <NavItem>
@@ -81,10 +87,10 @@ class UserBox extends React.Component {
                                                     Messages
                                                     <div className="ml-auto badge badge-warning">512</div>
                                                 </NavLink>
-                                            </NavItem>
+                                            </NavItem> */}
                                             <NavItem>
-                                                <NavLink href="javascript:void(0);">
-                                                    Logs
+                                                <NavLink onClick={this.onLogout}>
+                                                    Logout
                                                 </NavLink>
                                             </NavItem>
                                         </Nav>

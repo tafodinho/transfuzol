@@ -12,12 +12,12 @@ class AppFooter extends React.Component {
                             <ul className="nav">
                                 <li className="nav-item">
                                     <a href="javascript:void(0);" className="nav-link">
-                                        Footer Link 1
+                                        {/* Footer Link 1 */}
                                     </a>
                                 </li>
                                 <li className="nav-item">
                                     <a href="javascript:void(0);" className="nav-link">
-                                        Footer Link 2
+                                        {/* Footer Link 2 */}
                                     </a>
                                 </li>
                             </ul>
@@ -26,15 +26,15 @@ class AppFooter extends React.Component {
                             <ul className="nav">
                                 <li className="nav-item">
                                     <a href="javascript:void(0);" className="nav-link">
-                                        Footer Link 3
+                                        {/* Footer Link 3 */}
                                     </a>
                                 </li>
                                 <li className="nav-item">
                                     <a href="javascript:void(0);" className="nav-link">
                                         <div className="badge badge-success mr-1 ml-0">
-                                            <small>NEW</small>
+                                            {/* <small>NEW</small> */}
                                         </div>
-                                        Footer Link 4
+                                        {/* Footer Link 4 */}
                                     </a>
                                 </li>
                             </ul>

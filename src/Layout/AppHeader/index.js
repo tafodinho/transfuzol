@@ -9,6 +9,7 @@ import HeaderLogo from '../AppLogo';
 
 import SearchBox from './Components/SearchBox';
 import UserBox from './Components/UserBox';
+import TransfuzolLogo from '../../assets/images/transfuzol.png'
 
 class Header extends React.Component {
     render() {
@@ -27,8 +28,9 @@ class Header extends React.Component {
                     transitionAppearTimeout={1500}
                     transitionEnter={false}
                     transitionLeave={false}>
-
-                    <h1 className="logo-title">TransfuZol</h1>
+                    
+                    <img className="logo" src={TransfuzolLogo} />
+                    {/* <h1 className="logo-title">TransfuZol</h1> */}
 
                     <div className={cx(
                         "app-header__content",
