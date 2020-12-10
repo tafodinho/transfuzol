@@ -1,7 +1,7 @@
 const dev = {
     api: {
-      // URL: 'https://api.transfuzol.com/',
-      URL: 'https://9d29fd2af089.ngrok.io/',
+      URL: 'https://api.transfuzol.com/',
+      // URL: 'https://9b434fa2a824.ngrok.io/',
     },
   };
   

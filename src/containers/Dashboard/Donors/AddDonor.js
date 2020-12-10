@@ -183,7 +183,7 @@ let AddDonor = ({
                                     </Field>
                                 </div>
                             </div>
-                            <div className="form-row">
+                            {/* <div className="form-row">
                                 <div className="col-sm">
                                     <Field
                                         name="medical_conditions"
@@ -194,8 +194,8 @@ let AddDonor = ({
                                         isMulti={true}
                                     />
                                 </div>
-                            </div>
-                            <div className="form-row">
+                            </div> */}
+                            {/* <div className="form-row">
                                 <div className="col-sm">
                                     <Field
                                         name="current_medications"
@@ -206,8 +206,8 @@ let AddDonor = ({
                                         placeholder="Current Medications (type and press enter to add)"
                                     />
                                 </div>
-                            </div>
-                            <div className="form-row">
+                            </div> */}
+                            {/* <div className="form-row">
                                 <div className="col-sm">
                                     <Field
                                         name="allergies"
@@ -218,7 +218,7 @@ let AddDonor = ({
                                         placeholder="Allergies (type and press enter to add)"
                                     />
                                 </div>
-                            </div>
+                            </div> */}
                             <div className="form-row">
                                 <div className="col-sm">
                                     <Field

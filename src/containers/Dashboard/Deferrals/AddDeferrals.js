@@ -11,10 +11,8 @@ import {
 import {validate} from './validate'
 import {
     renderInput,
-    renderSelect,
-    renderTextarea,
-    renderCreatableSelect,
-    renderCustumSelect
+    renderCustumSelect,
+    renderCheckbox
 } from './renderField'
 
 import {
@@ -32,13 +30,16 @@ let AddDeferral = ({
 }) => {
     const [visible, setVisible] = useState(false);
     const [mcOthers, setMcOthers] = useState(false)
+    const [permanent, setPermanent] = useState(false)
 
     useEffect(() => {
         console.log(formData)
         if(!formData) return
         if(!formData.values) return
-        if(formData.values.medical_condition === "others") {
-            setMcOthers(true)
+        if(formData.values.permanent_deferal) {
+            setPermanent(true)
+        } else {
+            setPermanent(false)
         }
     }, [formData])
 
@@ -52,6 +53,17 @@ let AddDeferral = ({
                         </Alert>}
                         <CardTitle>Add Deferral</CardTitle>
                         <form onSubmit={addDeferralEvent} >
+                        <div className="form-row">
+                                <div className="col-sm">
+                                    <Field
+                                        name="permanent_deferal"
+                                        id="permantntdeferal"
+                                        type="checkbox"
+                                        component={renderCheckbox}
+                                        placeholder="Permanent deferal?"
+                                    />
+                                </div>
+                            </div>
                             <div className="form-row">
                                 <div className="col-sm">
                                     <Field
@@ -65,7 +77,7 @@ let AddDeferral = ({
                                         closeMenuOnSelect={true}
                                     />
                                 </div>
-                                <div className="col-sm">
+                                {!permanent && <div className="col-sm">
                                     <Field
                                         name="ndefbd"
                                         id="ndefbd"
@@ -73,9 +85,9 @@ let AddDeferral = ({
                                         component={renderInput}
                                         placeholder="Next Date Eligible for Donation"
                                     />
-                                </div>
+                                </div>}
                             </div>
-                            <div className="form-row">
+                            {/* <div className="form-row">
                                 <div className="col-sm">
                                     <Field
                                         name="reason"
@@ -84,7 +96,7 @@ let AddDeferral = ({
                                         placeholder="Reason"
                                     />
                                 </div>
-                            </div>
+                            </div> */}
                             <Button color="primary" type="submit" className="mt-1" disabled={state.loading}>
                                 {state.loading && <Spinner color="secondary" /> }
                                 {!state.loading ? "Sumbit" : "Adding.."}

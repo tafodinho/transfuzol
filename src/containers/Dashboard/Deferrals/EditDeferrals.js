@@ -66,7 +66,7 @@ let EditDeferral = ({
                                     />
                                 </div>
                             </div>
-                            <div className="form-row">
+                            {/* <div className="form-row">
                                 <div className="col-sm">
                                     <Field
                                         name="reason"
@@ -75,7 +75,7 @@ let EditDeferral = ({
                                         placeholder="Reason"
                                     />
                                 </div>
-                            </div>
+                            </div> */}
                             <Button color="primary" type="submit" className="mt-1" disabled={state.loading}>
                                 {state.loading && <Spinner color="secondary" /> }
                                 {!state.loading ? "Sumbit" : "Adding.."}

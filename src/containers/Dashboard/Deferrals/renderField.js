@@ -43,6 +43,22 @@ const renderSelect = ({
     );
 }
 
+const renderCheckbox = ({
+    input, type, placeholder, id, meta: { touched, error, visited }, children,
+  }) => {
+    return (
+        <FormGroup>
+            <Label for={id}>{placeholder}</Label>
+            <input 
+                {...input}
+                type={type}
+                id={id}
+                className={touched && error ? 'error-outline' : (!touched ? '' : 'success-outline')}
+            />
+        </FormGroup>
+    );
+}
+
 const renderCustumSelect = ({
     input, type, placeholder, options, 
     isMulti, isSearchable, closeMenuOnSelect,
@@ -118,5 +134,6 @@ export {
     renderSelect,
     renderTextarea,
     renderCreatableSelect,
-    renderCustumSelect
+    renderCustumSelect,
+    renderCheckbox
 };

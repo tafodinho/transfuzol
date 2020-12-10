@@ -180,7 +180,7 @@ let AddSubscriber = ({
                                     </Field>
                                 </div>
                             </div>
-                            <div className="form-row">
+                            {/* <div className="form-row">
                                 <div className="col-sm">
                                     <Field
                                         name="medical_condition"
@@ -191,8 +191,8 @@ let AddSubscriber = ({
                                         isMulti={true}
                                     />
                                 </div>
-                            </div>
-                            <div className="form-row">
+                            </div> */}
+                            {/* <div className="form-row">
                                 <div className="col-sm">
                                     <Field
                                         name="current_medications"
@@ -203,8 +203,8 @@ let AddSubscriber = ({
                                         placeholder="Current Medications (type and press enter to add)"
                                     />
                                 </div>
-                            </div>
-                            <div className="form-row">
+                            </div> */}
+                            {/* <div className="form-row">
                                 <div className="col-sm">
                                     <Field
                                         name="allergies"
@@ -215,7 +215,7 @@ let AddSubscriber = ({
                                         placeholder="Allergies (type and press enter to add)"
                                     />
                                 </div>
-                            </div>
+                            </div> */}
                             <div className="form-row">
                                 <div className="col-sm">
                                     <Field
