@@ -9,6 +9,7 @@
  =========================================================
  * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
  */
+@import url(../../node_modules/react-table-filter/lib/styles.css);
 .border-primary {
   border-color: #033C73; }
 
@@ -12341,6 +12342,13 @@ form .form-group input:focus {
 .donors .donor-item:hover {
   cursor: pointer; }
 
+.donors table {
+  margin-bottom: 250px !important; }
+  .donors table.mb-0 {
+    margin-bottom: 250px !important; }
+  .donors table.table {
+    margin-bottom: 250px !important; }
+
 .donor-profile p span {
   font-weight: bold; }
 
@@ -12409,6 +12417,13 @@ form .form-group input:focus {
 .subscribers .subscriber-item:hover {
   cursor: pointer; }
 
+.subscribers table {
+  margin-bottom: 250px !important; }
+  .subscribers table.mb-0 {
+    margin-bottom: 250px !important; }
+  .subscribers table.table {
+    margin-bottom: 250px !important; }
+
 .subscriber-profile p span {
   font-weight: bold; }
 
@@ -12461,6 +12476,13 @@ form .form-group input:focus {
 .hospitals .hospital-item:hover {
   cursor: pointer; }
 
+.hospitals table {
+  margin-bottom: 250px !important; }
+  .hospitals table.mb-0 {
+    margin-bottom: 250px !important; }
+  .hospitals table.table {
+    margin-bottom: 250px !important; }
+
 .hospital-profile p span {
   font-weight: bold; }
 
@@ -12511,6 +12533,13 @@ form .form-group input:focus {
 
 .transfusions .transfusion-item:hover {
   cursor: pointer; }
+
+.transfusions table {
+  margin-bottom: 250px !important; }
+  .transfusions table.mb-0 {
+    margin-bottom: 250px !important; }
+  .transfusions table.table {
+    margin-bottom: 250px !important; }
 
 .transfusion-profile p span {
   font-weight: bold; }
@@ -12564,6 +12593,13 @@ form .form-group input:focus {
 
 .donations .donation-item:hover {
   cursor: pointer; }
+
+.donations table {
+  margin-bottom: 250px !important; }
+  .donations table.mb-0 {
+    margin-bottom: 250px !important; }
+  .donations table.table {
+    margin-bottom: 250px !important; }
 
 .donation-profile p span {
   font-weight: bold; }

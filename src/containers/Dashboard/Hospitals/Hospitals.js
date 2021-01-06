@@ -1,5 +1,6 @@
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
 import { connect } from 'react-redux';
+import TableFilter from 'react-table-filter';
 
 import {
     Row, Col,
@@ -25,6 +26,17 @@ const Hospitals = ({
     deleteHospital
 }) => {
     const [visible, setVisible] = useState(true)
+    const [tableData, setTableData] = useState(hospitalList)
+    let tableFilterNode = useRef(null)
+    const  _filterUpdated = (newData, filtersObject) => {
+        setTableData(newData);
+    }
+    useEffect(() => {
+        console.log("DONORLIST", hospitalList)
+        tableFilterNode.reset(hospitalList, true);
+        setTableData(hospitalList)
+    }, [hospitalList])
+
     const onSelectHospital = (id, view) => {
         getHospital(id)
         changeSection(view)
@@ -86,13 +98,34 @@ const Hospitals = ({
                         <div className="table-responsive">
                             <table className="align-middle mb-0 table table-borderless table-striped table-hover">
                                 <thead>
-                                <tr>
+                                    <TableFilter
+                                        rows={hospitalList}
+                                        onFilterUpdate={_filterUpdated}
+                                        ref={ (node) => {tableFilterNode = node}}
+                                    >
+                                        <th key="name" filterkey="name" className="cell">
+                                            Name
+                                        </th>
+                                        <th key="city" filterkey="city" className="cell" alignleft={'true'}>
+                                            City
+                                        </th>
+                                        <th key="address" filterkey="address" className="cell">
+                                            Address
+                                        </th>
+                                        <th key="phone1" filterkey="phone1" className="cell">
+                                            phone1
+                                        </th>
+                                        <th key="actions" filterkey="actions" className="cell">
+                                            Actions
+                                        </th>
+                                    </TableFilter>
+                                {/* <tr>
                                     <th className="text-center">Name</th>
                                     <th>City</th>
                                     <th className="text-center">Address</th>
                                     <th className="text-center">Phone1</th>
                                     <th className="text-center">Actions</th>
-                                </tr>
+                                </tr> */}
                                 </thead>
                                 <tbody>
                                     {hospitals}

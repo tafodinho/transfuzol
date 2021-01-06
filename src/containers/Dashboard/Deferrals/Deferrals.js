@@ -1,5 +1,6 @@
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
 import { connect } from 'react-redux';
+import TableFilter from 'react-table-filter';
 
 import {
     Row, Col,
@@ -25,6 +26,17 @@ const Deferrals = ({
     deleteDeferral
 }) => {
     const [visible, setVisible] = useState(true)
+    const [tableData, setTableData] = useState(deferralList)
+    let tableFilterNode = useRef(null)
+    const  _filterUpdated = (newData, filtersObject) => {
+        setTableData(newData);
+    }
+    useEffect(() => {
+        console.log("DONORLIST", deferralList)
+        tableFilterNode.reset(deferralList, true);
+        setTableData(deferralList)
+    }, [deferralList])
+
     const onSelectDeferral = (id, view) => {
         getDeferral(id)
         changeSection(view)
@@ -33,7 +45,7 @@ const Deferrals = ({
         console.log("STATE CHANGED", state.deferralList)
     }, [state])
 
-    const deferrals = deferralList.map(deferral => (
+    const deferrals = tableData.map(deferral => (
         <tr className="deferral-item">
             {/* <td onClick={() => onSelectDeferral(deferral.id, 'profile')}>
                 
@@ -76,12 +88,27 @@ const Deferrals = ({
                         <div className="table-responsive">
                             <table className="align-middle mb-0 table table-borderless table-striped table-hover">
                                 <thead>
-                                <tr>
+                                    <TableFilter
+                                        rows={deferralList}
+                                        onFilterUpdate={_filterUpdated}
+                                        ref={ (node) => {tableFilterNode = node}}
+                                    >
+                                        <th key="donor" filterkey="donor.first_name" className="cell">
+                                            Donor
+                                        </th>
+                                        <th key="done_at" filterkey="hospital.name" className="cell">
+                                            Done At
+                                        </th>
+                                        <th key="actions" filterkey="actions" className="cell">
+                                            Actions
+                                        </th>
+                                    </TableFilter>
+                                {/* <tr>
                                     <th className="text-center">Donor</th>
                                     <th className="text-center">Reason</th>
                                     <th className="text-center">Done On</th>
                                     <th className="text-center">Actions</th>
-                                </tr>
+                                </tr> */}
                                 </thead>
                                 <tbody>
                                     {deferrals}

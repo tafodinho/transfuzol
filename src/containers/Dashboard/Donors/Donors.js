@@ -1,5 +1,6 @@
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
 import { connect } from 'react-redux';
+import TableFilter from 'react-table-filter';
 
 import {
     Row, Col,
@@ -11,10 +12,6 @@ import {
     Alert
 } from 'reactstrap';
 
-import avatar1 from '../../../assets/utils/images/avatars/1.jpg';
-import avatar2 from '../../../assets/utils/images/avatars/2.jpg';
-import avatar3 from '../../../assets/utils/images/avatars/3.jpg';
-import avatar4 from '../../../assets/utils/images/avatars/4.jpg';
 import { useEffect } from 'react';
 
 const Donors = ({
@@ -25,16 +22,28 @@ const Donors = ({
     deleteDonor
 }) => {
     const [visible, setVisible] = useState(true)
-    const onSelectDonor = (id, view) => {
+    const [tableData, setTableData] = useState(donorList)
+    let tableFilterNode = useRef(null)
+    const  _filterUpdated = (newData, filtersObject) => {
+        setTableData(newData);
+    }
+
+    useEffect(() => {
+        console.log("DONORLIST", donorList)
+        tableFilterNode.reset(donorList, true);
+        setTableData(donorList)
+    }, [donorList])
+
+    const onSelectDonor = (id, view) => { 
         getDonor(id)
         changeSection(view)
     }
-    useEffect(() => {
-        console.log("STATE CHANGED", state.donorList)
-    }, [state])
 
-    const donors = donorList.map(donor => (
-        <tr className="donor-item">
+
+    
+
+    const donors = tableData.map((donor, index) => (
+        <tr className="donor-item" key={'row_'+index}>
             <td className="text-center text-muted">{donor.sn}</td>
             <td onClick={() => onSelectDonor(donor.id, 'profile')}>
                 <div className="widget-content p-0">
@@ -70,6 +79,8 @@ const Donors = ({
         </tr>
     ))
 
+    
+
     return (
         <div className="donors">
             <Row>
@@ -86,15 +97,29 @@ const Donors = ({
                             </div>
                         </div>
                         <div className="table-responsive">
-                            <table className="align-middle mb-0 table table-borderless table-striped table-hover">
+                            <table className="align-middle mb-0 table table-borderless table-striped table-hover" style={{marginBottom: "250px"}}>
                                 <thead>
-                                <tr>
-                                    <th className="text-center">Id</th>
-                                    <th>Name</th>
-                                    <th className="text-center">City</th>
-                                    <th className="text-center">Status</th>
-                                    <th className="text-center">Actions</th>
-                                </tr>
+                                <TableFilter
+                                    rows={donorList}
+                                    onFilterUpdate={_filterUpdated}
+                                    ref={ (node) => {tableFilterNode = node}}
+                                    >
+                                    <th key="id" filterkey="id" casesensitive={'true'} showsearch={'true'}>
+                                        Id
+                                    </th>
+                                    <th key="name" filterkey="first_name" className="cell">
+                                        Name
+                                    </th>
+                                    <th key="city" filterkey="city" className="cell" alignleft={'true'}>
+                                        City
+                                    </th>
+                                    <th key="status" filterkey="status" className="cell">
+                                        Status
+                                    </th>
+                                    <th key="actions" filterkey="actions" className="cell">
+                                        Actions
+                                    </th>
+                                </TableFilter>
                                 </thead>
                                 <tbody>
                                     {donors}

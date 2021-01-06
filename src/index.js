@@ -5,6 +5,7 @@ import { unregister } from './registerServiceWorker';
 
 import { HashRouter } from 'react-router-dom';
 import './assets/base.css';
+import '../node_modules/react-table-filter/lib/styles.css';
 import Main from './DemoPages/Main';
 import configureStore from './config/configureStore';
 import { Provider } from 'react-redux';

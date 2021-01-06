@@ -35,6 +35,15 @@ form {
             cursor: pointer;
         }
     }
+    table {
+        margin-bottom: 250px !important;
+        &.mb-0 {
+            margin-bottom: 250px !important;
+        }
+        &.table {
+            margin-bottom: 250px !important;
+        }
+    }
     
 }
 .donor-profile {

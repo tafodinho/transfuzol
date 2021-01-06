@@ -1,5 +1,6 @@
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
 import { connect } from 'react-redux';
+import TableFilter from 'react-table-filter';
 
 import {
     Row, Col,
@@ -11,10 +12,6 @@ import {
     Alert
 } from 'reactstrap';
 
-import avatar1 from '../../../assets/utils/images/avatars/1.jpg';
-import avatar2 from '../../../assets/utils/images/avatars/2.jpg';
-import avatar3 from '../../../assets/utils/images/avatars/3.jpg';
-import avatar4 from '../../../assets/utils/images/avatars/4.jpg';
 import { useEffect } from 'react';
 
 const Admins = ({
@@ -25,15 +22,27 @@ const Admins = ({
     deleteAdmin
 }) => {
     const [visible, setVisible] = useState(false)
+    const [tableData, setTableData] = useState(adminList)
+    let tableFilterNode = useRef(null)
+    const  _filterUpdated = (newData, filtersObject) => {
+        setTableData(newData);
+    }
+    useEffect(() => {
+        console.log("DONORLIST", adminList)
+        tableFilterNode.reset(adminList, true);
+        setTableData(adminList)
+    }, [adminList])
+
     const onSelectAdmin = (id, view) => {
         getAdmin(id)
         changeSection(view)
     }
+
     useEffect(() => {
         console.log("STATE CHANGED", state.adminList)
     }, [state])
 
-    const admins = adminList.map(admin => (
+    const admins = tableData.map(admin => (
         <tr className="admin-item">
             {/* <td onClick={() => onSelectAdmin(admin.id, 'profile')}>
                 
@@ -76,12 +85,24 @@ const Admins = ({
                         <div className="table-responsive">
                             <table className="align-middle mb-0 table table-borderless table-striped table-hover">
                                 <thead>
-                                <tr>
-                                    <th className="text-center">Name</th>
-                                    <th className="text-center">Username</th>
-                                    <th className="text-center">Created On</th>
-                                    <th className="text-center">Actions</th>
-                                </tr>
+                                    <TableFilter
+                                        rows={adminList}
+                                        onFilterUpdate={_filterUpdated}
+                                        ref={ (node) => {tableFilterNode = node}}
+                                    >
+                                        <th key="name" filterkey="name" className="cell">
+                                            Name
+                                        </th>
+                                        <th key="email" filterkey="email" className="cell" alignleft={'true'}>
+                                            Username
+                                        </th>
+                                        <th key="created_on" filterkey="created_at" className="cell">
+                                            Created On
+                                        </th>
+                                        <th key="actions" filterkey="actions" className="cell">
+                                            Actions
+                                        </th>
+                                    </TableFilter>
                                 </thead>
                                 <tbody>
                                     {admins}

@@ -1,5 +1,6 @@
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
 import { connect } from 'react-redux';
+import TableFilter from 'react-table-filter';
 
 import {
     Row, Col,
@@ -25,6 +26,17 @@ const Donations = ({
     deleteDonation
 }) => {
     const [visible, setVisible] = useState(true)
+    const [tableData, setTableData] = useState(donationList)
+    let tableFilterNode = useRef(null)
+    const  _filterUpdated = (newData, filtersObject) => {
+        setTableData(newData);
+    }
+    useEffect(() => {
+        console.log("DONORLIST", donationList)
+        tableFilterNode.reset(donationList, true);
+        setTableData(donationList)
+    }, [donationList])
+
     const onSelectDonation = (id, view) => {
         getDonation(id)
         changeSection(view)
@@ -33,7 +45,7 @@ const Donations = ({
         console.log("STATE CHANGED", state.donationList)
     }, [state])
 
-    const donations = donationList.map(donation => (
+    const donations = tableData.map(donation => (
         <tr className="donation-item">
             {/* <td onClick={() => onSelectDonation(donation.id, 'profile')}>
                 
@@ -76,12 +88,30 @@ const Donations = ({
                         <div className="table-responsive">
                             <table className="align-middle mb-0 table table-borderless table-striped table-hover">
                                 <thead>
-                                <tr>
+                                    <TableFilter
+                                        rows={donationList}
+                                        onFilterUpdate={_filterUpdated}
+                                        ref={ (node) => {tableFilterNode = node}}
+                                    >
+                                        <th key="volume_of_blood" filterkey="volume_of_blood" className="cell">
+                                            Volume of Blood
+                                        </th>
+                                        <th key="name" filterkey="donor.first_name" className="cell" alignleft={'true'}>
+                                            Donor
+                                        </th>
+                                        <th key="created_on" filterkey="hospital.name" className="cell">
+                                            Done At
+                                        </th>
+                                        <th key="actions" filterkey="actions" className="cell">
+                                            Actions
+                                        </th>
+                                    </TableFilter>
+                                {/* <tr>
                                     <th className="text-center">Volume of BLood</th>
                                     <th className="text-center">Donor</th>
                                     <th className="text-center">Done At</th>
                                     <th className="text-center">Actions</th>
-                                </tr>
+                                </tr> */}
                                 </thead>
                                 <tbody>
                                     {donations}
