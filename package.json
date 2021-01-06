@@ -1,16 +1,13 @@
 {
-  "name": "tranfuzol",
+  "name": "architectui-react-theme-free",
   "version": "1.0.0",
   "private": true,
-  "description": "Medical application for managing blood collection and distrobution",
+  "description": "ArchitectUI - Bootstrap 4 ReactJS Admin Dashboard Template FREE",
   "author": "DashboardPack.com",
   "homepage": "https://master.d2e7cb319ux6eo.amplifyapp.com/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/tafodinho/transfuzol.git"
-  },
-  "engines": {
-    "node": "12.x"
+    "url": "git+https://github.com/DashboardPack/architectui-react-theme-free"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.15",
@@ -132,7 +129,8 @@
     "start": "npm-run-all -p start-js start-scss",
     "build": "cross-env NODE_PATH=./src node scripts/build.js",
     "test": "cross-env NODE_PATH=./src node scripts/test.js --env=jsdom",
-    "predeploy": "npm run build"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "jest": {
     "collectCoverageFrom": [
