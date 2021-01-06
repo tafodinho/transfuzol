@@ -125,12 +125,12 @@
     "sass-loader": "^6.0.6"
   },
   "scripts": {
-    "dev": "react-scripts start",
-    "start": "serve -s build",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "heroku-postbuild": "npm run build"
+    "start-js": "cross-env NODE_PATH=./src node scripts/start.js",
+    "start-scss": "node-sass --watch ./src/assets/*.scss -o ./src/assets",
+    "start": "npm-run-all -p start-js start-scss",
+    "build": "cross-env NODE_PATH=./src node scripts/build.js",
+    "test": "cross-env NODE_PATH=./src node scripts/test.js --env=jsdom",
+    "predeploy": "npm run build"
   },
   "jest": {
     "collectCoverageFrom": [
