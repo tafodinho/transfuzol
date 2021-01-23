@@ -1,10 +1,9 @@
 {
-  "name": "architectui-react-theme-free",
+  "name": "Transfuzol",
   "version": "1.0.0",
   "private": true,
   "description": "ArchitectUI - Bootstrap 4 ReactJS Admin Dashboard Template FREE",
   "author": "DashboardPack.com",
-  "homepage": "https://master.d2e7cb319ux6eo.amplifyapp.com/",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DashboardPack/architectui-react-theme-free"
