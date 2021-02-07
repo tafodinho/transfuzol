@@ -1,13 +1,13 @@
 const dev = {
     api: {
-      URL: 'https://api.transfuzol.com/',
-      // URL: 'https://9b434fa2a824.ngrok.io/',
+      URL: 'http://transfuzol-api.herokuapp.com/',
+      // URL: 'https://c477a5d52604.ngrok.io/',
     },
   };
   
   const prod = {
     api: {
-      URL: 'https://api.transfuzol.com/',
+      URL: 'http://transfuzol-api.herokuapp.com/',
     },
   };
   
